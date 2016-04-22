@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   end
   root to: 'welcome#index'
   
-  resources :tags
-  resources :post_tags
-  resources :comments
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
+
   resources :roles
   
 end
