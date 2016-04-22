@@ -16,9 +16,11 @@
 <p>
   <strong>Comment:</strong>
   <% @post.comments.each do |comment| %>
-    <li><%= comment.content %></li>
+    <li><%= comment.content %></li> by <% comment.user %><!-- the user who made the comment -->
   <% end %>
 </p>
+
+<!-- we need to be able to tell who is making these comments -->
 
 <%= render "/comments/form" %>
 

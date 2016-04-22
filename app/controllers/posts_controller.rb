@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comment.save
+    @user = User.find(params[:id])
   end
 
   # GET /posts/new
