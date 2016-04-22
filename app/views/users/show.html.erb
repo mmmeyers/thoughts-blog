@@ -1,13 +1,33 @@
-
-
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
 
 <p>
+  <strong>Email:
+  <%= @user.email %>
+</p>
+
+<p>
   <strong>Role:</strong>
   <%= @user.role.name %>
+</p>
+
+<p>
+  <strong>Joined on:</strong>
+  <%= @joined_on %>
+</p>
+<p>
+  <strong>Last logged in on:</strong>
+  <%= @last_login %>
+</p>
+<p>
+  <strong>No. times logged in:</strong>
+  <%= @user.sign_in_count %>
+</p>
+<p>
+  <strong>Associated users:</strong>
+  <%= @associated_users %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
