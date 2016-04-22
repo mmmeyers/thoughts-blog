@@ -14,5 +14,17 @@ class User < ActiveRecord::Base
   def assign_role
     self.role = Role.find_by name: "Regular" if self.role.nil?
   end
+
+  def admin?
+    self.role.name == "Admin"
+  end
+
+  def author?
+    self.role.name == "Author"
+  end
+
+  def regular?
+    self.role.name == "Regular"
+  end
   
 end

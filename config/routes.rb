@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  root to: 'posts#index'
+  authenticated :user do
+    root to: 'posts#index', as: :authenticated_root
+  end
+  root to: 'welcome#index'
   
   resources :tags
   resources :post_tags
