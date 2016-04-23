@@ -12,6 +12,9 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    @comment = @post.comments.new
+    @user = @post.user
   end
 
   # GET /posts/new
@@ -28,6 +31,7 @@ class PostsController < ApplicationController
   def create
     # @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
