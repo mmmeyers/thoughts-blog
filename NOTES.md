@@ -14,3 +14,5 @@
   - How is user type determined? I think if you register, you can be an author and if not, you can be regular. How to show all posts along with comments to regular users?
     - Work on post authorization
     - Work on comment authorization
+
+- The admin should also see links to each user's name so she can go in and edit them easily, OR when admin logs in and posts index page is displayed, she should be able to see a link to all users index too.
