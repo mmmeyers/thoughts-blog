@@ -4,13 +4,14 @@ class CommentsController < ApplicationController
     # @user = User.find(params[:id])
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
-    @comment.user = current_user
+    @comment.username = current_user.name
     if @comment.save
       redirect_to post_url(@post)
     else
       render "posts/show"
     end
   end
+
 
   def update
     @comment = Comment.find(params[:id])
