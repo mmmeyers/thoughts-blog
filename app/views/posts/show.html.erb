@@ -20,7 +20,10 @@
   <% end %>
 </p>
 
-<!-- we need to be able to tell who is making these comments -->
+<% if can? :edit, Post %>
+  <%= link_to "Edit this post", edit_post_path(@post) %>
+<% end %>
+
 
 <%= render "/comments/form" %>
 
