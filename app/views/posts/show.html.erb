@@ -20,12 +20,17 @@
   <% end %>
 </p>
 
-<% if can? :edit, Post %>
-  <%= link_to "Edit this post", edit_post_path(@post) %>
-<% end %>
-
 
 <%= render "/comments/form" %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if can? :edit, Post %>
+  <%= link_to 'Edit Post', edit_post_path(@post) %> |
+<% end %>
+
+<% if can? :destroy, Post %>
+  <%= link_to 'Delete Post', post_path(@post), :method => :delete, data: { confirm: 'Are you sure?' }%>
+<% end %>
+
+<p>
 <%= link_to 'Back', posts_path %>
+</p>
