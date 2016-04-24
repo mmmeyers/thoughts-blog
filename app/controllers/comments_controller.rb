@@ -12,13 +12,41 @@ class CommentsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @comment}
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+  end
 
   def update
-    @comment = Comment.find(params[:id])
-    @comment.update(comment_params)
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
 
-    redirect_to post_path(@post.comment)
+    respond_to do |format|
+      if @comment.update_attributes(params[:comment])
+        format.html {redirect_to([@comment.post, @comment], :notice => "Successful")}
+        format.xml {head :ok}
+      else
+        format.html {render :action => "edit"}
+        format.xml {render :xml => @comment.errors, :status => :unprocessable_entity}
+      end
+    end
   end
+
+  # def update
+  #   @comment = Comment.find(params[:id])
+  #   @comment.update(comment_params)
+  #   redirect_to post_path(@post.comment)
+  # end
 
   def destroy
     @comment = Comment.find(params[:id])

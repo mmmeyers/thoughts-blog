@@ -15,4 +15,4 @@
     - Work on post authorization
     - Work on comment authorization
 
-- The admin should also see links to each user's name so she can go in and edit them easily, OR when admin logs in and posts index page is displayed, she should be able to see a link to all users index too.
+X The admin should also see links to each user's name so she can go in and edit them easily, OR when admin logs in and posts index page is displayed, she should be able to see a link to all users index too.

@@ -7,12 +7,13 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @users = User.all
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
     @comment = @post.comments.new
     @user = @post.user
   end

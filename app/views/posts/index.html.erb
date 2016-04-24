@@ -39,3 +39,10 @@
   <% if can? :create, Post %>
     <%= link_to 'New Post', new_post_path %>
   <% end %>
+
+
+<h4><% if can? :create, User %>
+  <h3>Admin Only</h3>
+  <%= link_to 'Users', users_path %>
+<% end %></h4>
+

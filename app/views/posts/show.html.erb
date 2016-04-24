@@ -16,7 +16,7 @@
 <p>
   <strong>Comment:</strong>
   <% @post.comments.each do |comment| %>
-    <li><%= comment.content %></li> by <%= comment.username %>
+    <li><%= link_to comment.content, edit_post_comment_path(@post, comment) %></li> by <%= comment.username %>
   <% end %>
 </p>
 
