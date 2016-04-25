@@ -1,0 +1,6 @@
+<h1>All Comments for this post</h1>
+
+<% @post.comments.each do |comment| %>  
+  <li><%= link_to comment.content, post_comment_path(@post, comment) %> by <%= comment.username %></li>
+<% end %>
+

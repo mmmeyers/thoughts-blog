@@ -1,0 +1,5 @@
+<h4><%= @comment.content %></h4>
+
+<% if can? :update, Comment %>
+  <%= link_to 'Edit comment', edit_post_comment_path(@post, @comment) %>
+<% end %>

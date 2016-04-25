@@ -6,6 +6,7 @@ class Ability
 
     if user.admin?
         can :manage, :all
+
     elsif user.author?
         can :read, Post
         can :create, Post
@@ -14,7 +15,7 @@ class Ability
         end
 
         can :update, Comment do |comment|
-            comment.try(:user) == user 
+            comment.try(:user) == user
         end
 
         can :destroy, Post do |post|
@@ -23,6 +24,10 @@ class Ability
 
     elsif user.regular?
         can :read, Post
+
+        can :destroy, Comment do |comment|
+            comment.try(:user) == user 
+        end
         end
     end
 end
