@@ -29,42 +29,43 @@ class CommentsController < ApplicationController
     end
   end
 
-
   def edit
+    # authorize! :edit, @comment
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+  end
+
+  def update
     authorize! :edit, Comment
-
-      @post = Post.find(params[:post_id])
-      @comment = @post.comments.find(params[:id])
-
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    #@comment = Comment.find(params[:id])
+    if @comment.user_id == current_user.id
+      respond_to do |format|
+        if @comment.update_attributes(comment_params)
+          format.html {redirect_to([@comment.post, @comment], :notice => "Successful")}
+          format.xml {head :ok}
+        else
+          format.html {render :action => "edit"}
+          format.xml {render :xml => @comment.errors, :status => :unprocessable_entity}
+        end
+      end
+      else
+        flash[:notice] = "Access denied"
+        redirect_to posts_path
+    end
   end
 
   # def update
   #   authorize! :edit, @comment
-  #   @post = Post.find(params[:post_id])
+  #   if @comment.user_id == current_user.id
+  #   # @post = Post.find(params[:post_id])
   #   # @comment = @post.comments.find(params[:id])
-  #   @comment = Comment.find(params[:id])
-
-  #   respond_to do |format|
-  #     if @comment.update_attributes(params[:comment])
-  #       format.html {redirect_to([@comment.post, @comment], :notice => "Successful")}
-  #       format.xml {head :ok}
-  #     else
-  #       format.html {render :action => "edit"}
-  #       format.xml {render :xml => @comment.errors, :status => :unprocessable_entity}
-  #     end
+  #   # @comment = Comment.find(params[:id])
+  #     @comment.update(comment_params)
+  #     redirect_to posts_path
   #   end
   # end
-
-  def update
-    authorize! :edit, @comment
-    if @comment.user_id == current_user.id
-    # @post = Post.find(params[:post_id])
-    # @comment = @post.comments.find(params[:id])
-    # @comment = Comment.find(params[:id])
-      @comment.update(comment_params)
-      redirect_to posts_path
-    end
-  end
 
   def destroy
     @comment = Comment.find(params[:id])

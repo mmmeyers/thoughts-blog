@@ -3,3 +3,5 @@
 <% if can? :edit, Comment %>
   <%= link_to 'Edit comment', edit_post_comment_path(@post, @comment) %>
 <% end %>
+
+<%= link_to "Back", posts_path %>

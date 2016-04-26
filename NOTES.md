@@ -22,4 +22,4 @@ Currently, if you post a comment as a Regular user, you are not able to edit tha
 
 Now, we do have a user_id associated with a comment, but how to use that to make sure that only that user_id can edit that comment? Right now, anyone can edit any comment.
 
-Ok now a user can't edit a comment that isn't theirs. However, this shows up when they get to the actual comment edit page and hit submit - redirects with an "access denied" to the post index page.
+Ok now a user can't edit a comment that isn't theirs. However, this shows up when they get to the actual comment edit page and hit submit - redirects with an "access denied" to the post index page. Also, a user can't even edit their own comment - why??
