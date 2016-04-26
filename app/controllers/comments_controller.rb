@@ -71,8 +71,13 @@ class CommentsController < ApplicationController
     authorize! :destroy, Comment
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to post_url(@post)
+    if @comment.user_id == current_user.id
+      @comment.destroy
+      redirect_to post_url(@post)
+    else
+      flash[:notice] = "Access denied"
+      redirect_to posts_path
+    end
   end
 
   private
