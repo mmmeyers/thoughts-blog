@@ -6,6 +6,12 @@
   <% end %>
 <% end %>
 <p>
+
+<% if @comment.errors[:content].empty? %>
+  <div class="field">
+<% else %>
+  <div class="field_with_errors">
+<% end %>
   <strong>Add a Comment:</strong>
   <%= form_for([@post, @comment]) do |f| %>
     <%= f.text_area :content %><br>
