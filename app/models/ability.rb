@@ -25,6 +25,8 @@ class Ability
     elsif user.regular?
         can :read, Post
 
+        can :update, Comment, {:user_id => user.id}
+
         can :destroy, Comment do |comment|
             comment.try(:user) == user 
         end

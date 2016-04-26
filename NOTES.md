@@ -18,4 +18,8 @@
 X The admin should also see links to each user's name so she can go in and edit them easily, OR when admin logs in and posts index page is displayed, she should be able to see a link to all users index too.
 
 
-Currently, if you post a comment as a Regular user, you are not able to edit that comment.
+Currently, if you post a comment as a Regular user, you are not able to edit that comment. Comment instances do not have a user_id associated with them. How do we assign a user_id to a comment when it is created?
+
+Now, we do have a user_id associated with a comment, but how to use that to make sure that only that user_id can edit that comment? Right now, anyone can edit any comment.
+
+Ok now a user can't edit a comment that isn't theirs. However, this shows up when they get to the actual comment edit page and hit submit - redirects with an "access denied" to the post index page.
