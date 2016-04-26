@@ -9,6 +9,7 @@
   X Add edit/update to posts - now a user can edit their own post and they get an error msg when trying to update someone else's post
   X Add edit/update to comments
   X Add delete to posts
+  X Add "last updated" with strftime to each post
 
 -------FIXED-----------------------------------------------------------------------------------------------
   - Add delete to comments
@@ -16,7 +17,7 @@
   Right now anyone can delete anyone's commment!
   Okay - now you can only delete your own comment, but if trying to delete smeone else's it won't let you, but also won't give an error message - just redirects to posts index page.
 
-  ----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
 
   - Make it look nice
   - How is user type determined? I think if you register, you can be an author and if not, you can be regular. How to show all posts along with comments to regular users?

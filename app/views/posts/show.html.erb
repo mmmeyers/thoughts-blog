@@ -1,6 +1,6 @@
 <p>
   <strong>Title:</strong>
-  <%= @post.title %>
+  <%= @post.title %>, <%= last_updated @post %>
 </p>
 
 <p>
@@ -9,7 +9,7 @@
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>By:</strong>
   <%= @post.user.name %>
 </p>
 
