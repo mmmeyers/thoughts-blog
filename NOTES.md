@@ -47,6 +47,20 @@ X - Your models must include a has_many, a belongs_to, and a has_many :through r
 X - The join model must also store an additional attribute describing the relationship. For example, in a blog domain with comments by users, you'd have a posts table and a users table, with the comments table containing the foreign key for the post_id and the user_id along with the comment's content.
 X - Your models should include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
 - You must include at least one class level ActiveRecord scope methods. To some extent these class scopes can be added to power a specific individual feature, such as "My Overdue Tasks" in a TODO application, scoping all tasks for the user by a datetime scope for overdue items, @user.tasks.overdue. Reports make for a good usage of class scopes, such as "Most Valuable Cart by Customer" where the code would implement a Cart.most_valuable and Cart.by_customer which could be combined as Cart.most_valuable.by_customer(@customer).
+
+  - Added a comments_count but not sure how to use it just yet.
+
+  <% Post.all.each do |post| %>
+    <%= Post.order("comments_count DESC")[all instances].comments_count %>
+  <% end %>
+
+Post.where(:id => 0..Post.count) finds all posts
+
+Post.order("comments_count DESC")[0].comments_count => this gives you the # of comments for item 0 (first item) in the ActiveRecord::Relation hash
+
+How do we not hardcode that [0] though???
+
+
 - You must include a nested form that writes to an associated model through a custom attribute writer. An example of this would be a New Recipe form that allowed you to add ingredients that are unique across recipes (thereby requiring a join model, or imagine being able to see all recipes that include Chicken), along with a quantity or description of the ingredient in the recipe. On this form you would have a series of fields named recipe[ingredient_attributes][0][name] and recipe[ingredient_attributes][0][description] which would write to the recipe model through a method ingredient_attributes=. This method cannot be provided via the accepts_nested_attributes_for macro because the custom writer would be responsible for finding or creating a recipe by name and then creating the row in the join model recipe_ingredients with the recipe_id, the ingredient_id, and the description from the form.
 X - Your application must provide a standard user authentication, including signup, login, logout, and passwords. You can use Devise but given the complexity of that system, you should also feel free to roll your own authentication logic.
 X - Your authentication system should allow login from some other service. Facebook, twitter, foursquare, github, etc...

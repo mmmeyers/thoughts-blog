@@ -36,6 +36,11 @@
 </table>
 
 
+<h4>
+The post with the most comments is: <%= Post.order("comments_count DESC").first.title %> with 
+<%= Post.order("comments_count DESC").first.comments_count %> comments.
+</h4>
+
 <br>
   <% if can? :create, Post %>
     <%= link_to 'New Post', new_post_path %>
