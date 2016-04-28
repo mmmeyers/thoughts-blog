@@ -50,7 +50,7 @@ X - Your models should include reasonable validations for the simple attributes.
 
   - Added a comments_count but not sure how to use it just yet.
 
-  <% Post.find_each do |post| %>
+  <% Post.all.each do |post| %>
     <%= Post.order("comments_count DESC")[all instances].comments_count %>
   <% end %>
 
