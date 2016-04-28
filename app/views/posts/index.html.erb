@@ -35,6 +35,17 @@
   </tbody>
 </table>
 
+<!-- this part is new -->
+<% if !params[:user].blank? %>
+  <% @posts = Post.where(user: params[:user]) %>
+<% end %>
+
+<h3>Filter posts:</h3>
+  <%= form_tag("/posts", method: "get") do %>
+    <%= select_tag "user", options_from_collection_for_select(@users, "id", "name"), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+<!-- end of new part -->
 
 <h4>
 The post with the most comments is: <%= Post.order("comments_count DESC").first.title %> with 

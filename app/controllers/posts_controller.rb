@@ -2,13 +2,18 @@ class PostsController < ApplicationController
   # before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
   load_and_authorize_resource
-  helper_method :params
 
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
     @users = User.all
+
+    if !params[:user].blank?
+      @posts = Post.by_user(params[:user])
+    else
+      @posts = Post.all 
+    end
   end
 
   # GET /posts/1
@@ -20,7 +25,7 @@ class PostsController < ApplicationController
   # end
 
   def show
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
     @comment = @post.comments.build
   end
 

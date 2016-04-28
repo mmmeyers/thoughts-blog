@@ -6,4 +6,9 @@ class Post < ActiveRecord::Base
   has_many :commentors, :through => :comments
   validates :title, :content, presence: true
 
+
+  def self.by_user(user_id)
+    where(:user => user_id)
+  end
+
 end
