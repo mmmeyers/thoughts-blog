@@ -1,22 +1,16 @@
+<div class="boxed">
 <p>
-  <h2><%= @post.title %></h2> by: <%= @post.user.name %> /|\ <%= last_updated @post %>
+  <h2><%= @post.title %></h2> by: <%= @post.user.name %><br>
+  <%= last_updated @post %>
 </p>
 
-
 <p>
-  <strong>Content:</strong>
   <%= @post.content %>
 </p>
-
+</div>
 
 <p>
-  <strong>Comments:</strong>
-  <% @post.comments.each do |comment| %>
-      <li><%= comment.content %> by <%= comment.username %></li>
-  <% end %>
-
-  See all comments for this post: <%= link_to 'Comments', post_comments_path(@post) %>
-
+See all comments for this post: <%= link_to 'Comments', post_comments_path(@post) %>
 </p>
 
 

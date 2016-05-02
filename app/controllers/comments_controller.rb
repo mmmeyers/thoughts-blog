@@ -13,7 +13,8 @@ class CommentsController < ApplicationController
     @comment.username = current_user.name
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to post_url(@post)
+      redirect_to post_comments_path(@post)
+      # redirect_to post_url(@post)
     else
       render "posts/show"
     end
@@ -55,17 +56,6 @@ class CommentsController < ApplicationController
         redirect_to posts_path
     end
   end
-
-  # def update
-  #   authorize! :edit, @comment
-  #   if @comment.user_id == current_user.id
-  #   # @post = Post.find(params[:post_id])
-  #   # @comment = @post.comments.find(params[:id])
-  #   # @comment = Comment.find(params[:id])
-  #     @comment.update(comment_params)
-  #     redirect_to posts_path
-  #   end
-  # end
 
   def destroy
     authorize! :destroy, Comment
