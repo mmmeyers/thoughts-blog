@@ -27,6 +27,12 @@
     <%= f.label :role_id %><br>
     <%= collection_select(:user, :role_id, Role.all, :id, :name, {prompt: true}) %>
   </div>
+
+  <div class="field">
+    <%= f.label :affiliation_id %><br>
+    <%= collection_select(:user, :affiliation_id, Affiliation.all, :id, :name, {prompt: true}) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

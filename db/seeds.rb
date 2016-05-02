@@ -18,6 +18,11 @@ p1 = Post.create({title: "Jus drein jus daun", content: "Yu gonplei ste odon.", 
 p2 = Post.create({title: "Ai laik heda", content: "Non na throu daun gon ai.", user_id: u2.id})
 p3 = Post.create({title: "Landed!", content: "We made it to the ground!", user_id: u3.id})
 
+a1 = Affiliation.create({name: "Trikru"})
+a2 = Affiliation.create({name: "Skaikru"})
+a3 = Affiliation.create({name: "Floukru"})
+a4 = Affiliation.create({name: "None"})
+
 
 # Unregistered users are redirected to the sign up page
 # Registered users: can view items

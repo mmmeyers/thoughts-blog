@@ -26,9 +26,14 @@
   <%= @user.sign_in_count %>
 </p>
 <p>
-  <strong>Associated users:</strong>
-  <%= @associated_users %>
+  <strong>Affiliation:</strong>
+  <% if @user.affiliation.nil? %>
+    none
+  <% else %>
+    <%= @user.affiliation.name %>
+  <% end %>
 </p>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

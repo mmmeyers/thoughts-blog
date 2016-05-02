@@ -1,0 +1,16 @@
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: url(woods2.png) center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  color: white;
+}
+
+a:link { color: yellow; }
+a:visited {color: orange;}

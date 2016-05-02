@@ -4,12 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   belongs_to :role
+  belongs_to :affiliation
   has_many :posts
   has_many :comments
   has_many :authored_posts, :class_name => "Post", :foreign_key => :author_id
   has_many :commented_posts, :through => :comments, :source => :post
   validates_presence_of :name
   before_save :assign_role
+  before_save :assign_affiliation
 
 
   def self.from_omniauth(auth)
@@ -27,6 +29,26 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def assign_affiliation
+    self.affiliation = Affiliation.find_by name: "None" if self.affiliation.nil?
+  end
+
+  def none?
+    self.affiliation.name == "None"
+  end
+
+  def trikru?
+    self.affiliation.name == "Trikru"
+  end
+
+  def skaikru?
+    self.affiliation.name == "Skaikru"
+  end
+
+  def floukru?
+    self.affiliation.name == "Floukru"
   end
 
   def assign_role
