@@ -6,9 +6,15 @@ class Post < ActiveRecord::Base
   has_many :commentors, :through => :comments
   validates :title, :content, presence: true
 
-
   def self.by_user(user_id)
     where(:user => user_id)
+  end
+
+  def tags_attributes=(tag_attributes)
+    tag_attributes.values.each do |tag_attribute|
+      tag = Tag.find_or_create_by(tag_attribute)
+      self.tags << tag
+    end
   end
 
 end
