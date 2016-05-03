@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502182743) do
+ActiveRecord::Schema.define(version: 20160503200847) do
 
   create_table "affiliations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "name"
+    t.text     "description"
   end
 
   create_table "comments", force: :cascade do |t|

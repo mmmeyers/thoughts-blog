@@ -20,3 +20,7 @@ a:visited {color: orange;}
   display: table;
   margin-top: 10px;
 }
+
+.links {
+  font-size: 15px;
+}

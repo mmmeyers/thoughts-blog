@@ -14,19 +14,6 @@
       <tr>
         <td><%= link_to post.title, post_path(post) %></td>
         <td><%= post.user.name %></td>
-       
-
-        <td>
-          <% if can? :update, post %>
-            <%= link_to 'Edit', edit_post_path(post) %></td>
-          <% end %>
-        </td>
-
-        <td>
-          <% if can? :destroy, post %>
-            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </td>
 
       </tr>
     <% end %>
@@ -50,15 +37,21 @@ The post with the most comments is: <%= Post.order("comments_count DESC").first.
 <%= Post.order("comments_count DESC").first.comments_count %> comments.
 </h4>
 
-<br>
+
+<div class="links">
+
+<h4>Or you can...</h4>
+  <%= link_to 'See Clan Affiliations', affiliations_path %><br>
+
   <% if can? :create, Post %>
-    <%= link_to 'New Post', new_post_path %>
+    <%= link_to 'Write out your thoughts', new_post_path %>
   <% end %>
+</div>
 
 
-<h4><% if can? :create, User %>
-  <h3>Admin Only</h3>
-  <%= link_to 'Users', users_path %>
-<% end %></h4>
+  <h4><% if can? :create, User %>
+    <h3>Admin Only</h3>
+    <%= link_to 'Users', users_path %>
+  <% end %></h4>
 </body>
 </html>

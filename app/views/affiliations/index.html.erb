@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Affiliations</h1>
+<h1>Affiliations</h1>
 
 <table>
   <thead>
@@ -12,9 +12,7 @@
   <tbody>
     <% @affiliations.each do |affiliation| %>
       <tr>
-        <td><%= link_to 'Show', affiliation %></td>
-        <td><%= link_to 'Edit', edit_affiliation_path(affiliation) %></td>
-        <td><%= link_to 'Destroy', affiliation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to affiliation.name, affiliation_path(affiliation) %></td>
       </tr>
     <% end %>
   </tbody>

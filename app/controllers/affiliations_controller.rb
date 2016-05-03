@@ -71,6 +71,6 @@ class AffiliationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def affiliation_params
-      params.require(:affiliation).permit(:name)
+      params.require(:affiliation).permit(:name, :description)
     end
 end

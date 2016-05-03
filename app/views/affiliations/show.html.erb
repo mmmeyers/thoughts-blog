@@ -1,4 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h2><%= @affiliation.name %></strong></h2>
 
-<%= link_to 'Edit', edit_affiliation_path(@affiliation) %> |
-<%= link_to 'Back', affiliations_path %>
+<p>
+  <%= @affiliation.description %>
+</p>
+
+
+
+<% if can? :edit, Affiliation %>
+  <%= link_to 'Edit this affiliation', edit_affiliation_path(@affiliation) %> |
+<% end %>
+
+<% if can? :destroy, Affiliation %>
+  <%= link_to 'Delete this affiliation', affiliation_path(@affiliation), :method => :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<p>
+  <%= link_to 'Back to Affliations', affiliations_path %> | 
+  <%= link_to 'Back to Posts', posts_path %>
+</p>

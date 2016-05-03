@@ -8,6 +8,7 @@ class Ability
         can :manage, :all
 
     elsif user.author?
+        can :read, Affiliation
         can :read, Post
         can :create, Post
         can :update, Post do |post|
@@ -27,6 +28,7 @@ class Ability
         end
 
     elsif user.regular?
+        can :read, Affiliation
         can :read, Post
 
         can :update, Comment do |comment|

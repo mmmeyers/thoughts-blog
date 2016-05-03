@@ -8,11 +8,12 @@
   <%= @post.content %>
 </p>
 
-<p>TAGS:
-<% @post.tags.each do |tag| %>
-  <%= tag.name %>
-<% end %>
-</p>
+<h5>TAGS:
+  <% @post.tags.each do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+</h5>
+
 
 </div>
 
