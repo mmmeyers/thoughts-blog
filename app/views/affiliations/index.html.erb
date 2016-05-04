@@ -20,4 +20,7 @@
 
 <br>
 
-<%= link_to 'New Affiliation', new_affiliation_path %>
+<% if can? :create, Affiliation %>
+  <%= link_to 'New Affiliation', new_affiliation_path %><br>
+<% end %>
+<%= link_to 'Back to Posts', posts_url %>
