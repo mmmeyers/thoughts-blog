@@ -9,13 +9,27 @@
 </p>
 
 <h5>TAGS:
-  <% @post.tags.each do |tag| %>
-    <li><%= tag.name %></li>
+  <% if @post.tags.empty? %>
+    No tags for this post.
+  <% else %>
+    <% @post.tags.each do |tag| %>
+      <li><%= tag.name %></li>
+    <% end %>
   <% end %>
 </h5>
 
 
 </div>
+
+
+<% if @post.comments.empty? %>
+  No one has commmented yet.
+<% else %>
+  Comments:<br>
+  <% @post.comments.each do |comment| %>  
+   <li><%= comment.content %> by <%= comment.username %></li>
+  <% end %>
+<% end %>
 
 <p>
 See all comments for this post: <%= link_to 'Comments', post_comments_path(@post) %>

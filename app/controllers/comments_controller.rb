@@ -7,14 +7,12 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # @user = User.find(params[:id])
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     @comment.username = current_user.name
     @comment.user_id = current_user.id
     if @comment.save
       redirect_to post_comments_path(@post)
-      # redirect_to post_url(@post)
     else
       render "posts/show"
     end
@@ -31,7 +29,6 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    # authorize! :edit, @comment
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
   end
@@ -40,7 +37,7 @@ class CommentsController < ApplicationController
     authorize! :edit, Comment
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    #@comment = Comment.find(params[:id])
+
     if @comment.user_id == current_user.id
       respond_to do |format|
         if @comment.update_attributes(comment_params)

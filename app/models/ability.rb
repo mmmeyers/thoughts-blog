@@ -15,16 +15,16 @@ class Ability
             post.try(:user) == user
         end
 
+        can :destroy, Post do |post|
+            post.try(:user) == user
+        end
+
         can :update, Comment do |comment|
             comment.try(:user) == user
         end
 
         can :destroy, Comment do |comment|
             comment.try(:user) == user
-        end
-
-        can :destroy, Post do |post|
-            post.try(:user) == user
         end
 
     elsif user.regular?

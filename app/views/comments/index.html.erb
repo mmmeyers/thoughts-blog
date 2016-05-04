@@ -4,9 +4,11 @@
 <% if @post.comments.empty? %>
   No one has commmented yet.
 <% else %>
-  <% @post.comments.each do |comment| %>  
-   <li><%= link_to comment.content, post_comment_path(@post, comment) %> by <%= comment.username %></li>
+  <% @post.comments.each do |comment| %>
+    <li><%= link_to comment.content, post_comment_path(@post, comment) %> by <%= comment.username %></li>
   <% end %>
 <% end %>
 
-<%= link_to "Back", post_path(@post) %>
+<p>
+  <%= link_to "Back", post_path(@post) %>
+</p>

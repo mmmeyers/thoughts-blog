@@ -1,7 +1,10 @@
 <h2><%= @affiliation.name %></strong></h2>
 
 <p>
-  <%= @affiliation.description %>
+  <%= @affiliation.description %><br>
+  <% @affiliation.users.each do |user| %>
+    <li><%= user.name %></li>
+  <% end %>
 </p>
 
 
