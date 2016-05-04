@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :authored_posts, :class_name => "Post", :foreign_key => :author_id
   has_many :commented_posts, :through => :comments, :source => :post
   validates_presence_of :name
+  validates :name, uniqueness: true
   before_save :assign_role
   before_save :assign_affiliation
 

@@ -16,8 +16,7 @@
         <td><%= link_to user.name, user_path(user) %></td>
         <td><%= user.email %></td>
         <td><%= user.role.name %></td>
-   
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -27,4 +26,7 @@
 <br>
 
 <%= link_to 'New User', new_user_path %><br>
-<%= link_to "Back to Posts", posts_path %>
+
+<p>
+  <%= link_to "Back to Posts", posts_path %>
+</p>
