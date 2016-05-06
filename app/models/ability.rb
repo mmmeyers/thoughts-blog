@@ -11,6 +11,7 @@ class Ability
         can :read, Affiliation
         can :read, Post
         can :create, Post
+        
         can :update, Post do |post|
             post.try(:user) == user
         end

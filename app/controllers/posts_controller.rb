@@ -26,7 +26,8 @@ class PostsController < ApplicationController
 
   def show
     # @post = Post.find(params[:id])
-    @comment = @post.comments.build
+    # @comment = @post.comments.build
+    @comment = Comment.new
   end
 
   # GET /posts/new
@@ -59,7 +60,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    authorize! :edit, @post
+    # authorize! :edit, @post
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }

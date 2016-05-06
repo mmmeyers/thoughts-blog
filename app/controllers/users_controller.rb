@@ -60,9 +60,11 @@ class UsersController < ApplicationController
     end
 
     respond_to do |format|
-      if @user.update(user_params)
+      # if @user.update(user_params)
+      if successfully_updated
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.json { head :no_content }
+        # format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
