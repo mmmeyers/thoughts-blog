@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   belongs_to :affiliation
   has_many :posts
   has_many :comments
-  has_many :authored_posts, :class_name => "Post", :foreign_key => :author_id
-  has_many :commented_posts, :through => :comments, :source => :post
+  # has_many :authored_posts, :class_name => "Post", :foreign_key => :author_id
+  # has_many :commented_posts, :through => :comments, :source => :post
   validates_presence_of :name
   validates :name, uniqueness: true
   before_save :assign_role

@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   has_many :tags, :through => :post_tags
   has_many :post_tags
   has_many :comments
-  has_many :commentors, :through => :comments
+  # has_many :commentors, :through => :comments
   validates :title, :content, presence: true
 
   def self.by_user(user_id)
