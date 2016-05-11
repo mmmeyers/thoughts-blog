@@ -1,7 +1,8 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user) # pass in the current_user object each time so that we can change the abilities
+    # based on the currently logged in user
     user ||= User.new
 
     if user.admin?
