@@ -3,3 +3,8 @@
 <% @tag.posts.each do |post| %>
   <p><%= link_to post.title, post_path(post) %></p>
 <% end %>
+
+<div>
+  <p><%= link_to "Back", post_path(@post) %></p>
+  <p><%= link_to "Back to posts", posts_path %></p>
+</div>
