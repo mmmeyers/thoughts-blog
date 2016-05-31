@@ -10,16 +10,15 @@ Rails.application.routes.draw do
   #   root to: 'posts#index', as: :authenticated_root
   # end
 
-  # root to: 'welcome#index'
-
   root to: 'posts#index'
   
   resources :posts do
     resources :comments
+    resources :tags, only: [:index, :show]
   end
 
   resources :roles
   resources :affiliations
-  resources :tags, only: [:index]
+  # resources :tags, only: [:index, :show]
 
 end

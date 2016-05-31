@@ -1,7 +1,7 @@
 <h3>TAGS:</h3>
 
 <% @tags.all.each do |tag| %>
-  <li><%= tag.name %></li>
+  <li><%= link_to tag.name, post_tag_path(@post, tag) %></li>
 <% end %>
 
 <%= link_to "Back to Posts", posts_path %>

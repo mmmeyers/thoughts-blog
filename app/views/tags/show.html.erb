@@ -1,0 +1,5 @@
+<h2><%= @tag.name %></h2>
+<p>Other posts with this tag:
+<% @tag.posts.each do |post| %>
+  <p><%= link_to post.title, post_path(post) %></p>
+<% end %>

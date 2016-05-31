@@ -13,14 +13,10 @@
     No tags for this post.
   <% else %>
     <% @post.tags.each do |tag| %>
-      <li><%= tag.name %></li>
+      <li><%= link_to tag.name, post_tags_path(@post) %></li> <!-- we want to link to tags to show which posts share these tags -->
     <% end %>
   <% end %>
 </h5>
-
-
-</div>
-
 
 <% if @post.comments.empty? %>
   No one has commmented yet.

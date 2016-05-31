@@ -69,3 +69,15 @@ X - Your authentication system should allow login from some other service. Faceb
 X - You must make use of a nested resource with the appropriate RESTful URLs. Additionally, your nested resource must provide a form that relates to the parent resource. Imagine an application with user profiles. You might represent a person's profile via the RESTful URL of /profiles/1, where 1 is the primary key of the profile. If the person wanted to add pictures to their profile, you could represent that as a nested resource of /profiles/1/pictures, listing all pictures belonging to profile 1. The route /profiles/1/pictures/new would allow to me upload a new picture to profile 1.
 X - Your forms should correctly display validation errors. Your fields should be enclosed within a fields_with_errors class and error messages describing the validation failures must be present within the view.
 - Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app. Logic present in your controllers should be encapsulated as methods in your models. Your views should use helper methods and partials to be as logic-less as possible. Follow patterns in the Rails Style Guide and the Ruby Style Guide.
+
+
+Added feature:
+User should be able to click on a tag (on post show page) and then go to a tag show page where you can see the other posts attached to this tag. So we want to:
+
+1. On the posts show page, click on a tag
+2. That link takes you to the tag's show page, where you can see associated posts
+
+How do we associate posts with tags?
+A post has_many tags
+A tag has_many posts
+They are connected by a join table, post_tags, which allows us to do posts.tags and tag.posts
