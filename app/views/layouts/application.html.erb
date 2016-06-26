@@ -2,27 +2,41 @@
 <html>
 <head>
   <title>ThoughtsBlog</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <% if user_signed_in? %>
-    Hello, <%= current_user.name %>!<br>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Edit profile", edit_user_registration_path %>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %><br>
-    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-  <% end %>
+<nav class="navbar navbar-dark bg-success">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+
+        <% if user_signed_in? %>
+          <li class="nav-item m-l-0">Hello, <%= current_user.name %>!</label></li><br>
+          <li class="nav-item m-l-0">Signed in as <%= current_user.email %>. Not you?</li>
+          <li class="nav-item"><%= link_to "Edit profile", edit_user_registration_path %></li>
+          <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %><br>
+          <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, id: "flash_#{name}" %>
   <% end %>
 
   <%= yield %>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 
 </body>
 </html>

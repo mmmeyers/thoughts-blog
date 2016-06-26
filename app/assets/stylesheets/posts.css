@@ -3,7 +3,11 @@ html, body {
   min-height: 100%;
 }
 
-body {
+.content {
+  color: black;
+}
+
+/*body {
   background: url(woods2.png) center no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -13,7 +17,7 @@ body {
 }
 
 a:link { color: yellow; }
-a:visited {color: orange;}
+a:visited {color: orange;}*/
 
 .boxed {
   border: 5px;

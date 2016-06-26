@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'paperclip'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-facebook'

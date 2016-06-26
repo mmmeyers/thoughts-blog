@@ -1,4 +1,6 @@
-<h4><%= @comment.content %>, written by <%= @comment.user.name %></h4>
+<div class="container-fluid">
+
+<h4 class="text-muted"><%= @comment.content %>: written by <%= @comment.user.name %></h4>
 
 <% if can? :edit, Comment %>
   <%= link_to 'Edit comment', edit_post_comment_path(@post, @comment) %>
@@ -9,3 +11,5 @@
 <% end %>
 
 <%= link_to "Back", posts_path %>
+
+</div>

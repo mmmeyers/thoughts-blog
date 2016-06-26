@@ -1,14 +1,17 @@
-<h1>All Comments for <font color="#DCDCDC"><%= @post.title %></font></h1>
-
+<div class="container-fluid m-t-2">
+<h3>All Comments for <font color="##5F9EA0"><%= @post.title %></font></h3>
 
 <% if @post.comments.empty? %>
   No one has commmented yet.
 <% else %>
-  <% @post.comments.each do |comment| %>
-    <li><%= link_to comment.content, post_comment_path(@post, comment) %> by <%= comment.username %></li>
+  <ul class="list-group">
+    <% @post.comments.each do |comment| %>
+    <li class="list-group-item"><%= link_to comment.content, post_comment_path(@post, comment) %> by <%= comment.username %></li>
+    </ul>
   <% end %>
 <% end %>
 
-<p>
+<p class="m-t-2">
   <%= link_to "Back", post_path(@post) %>
 </p>
+</div>
