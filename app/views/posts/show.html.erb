@@ -20,6 +20,7 @@
     <% else %>
       <% @post.tags.each do |tag| %>
         <li><%= link_to tag.name, post_tags_path(@post) %></li> <!-- we want to link to tags to show which posts share these tags -->
+ 
       <% end %>
     <% end %>
   </h5>
@@ -29,7 +30,7 @@
 <% if @post.comments.empty? %>
   <p class="text-muted">No one has commmented yet.</p>
 <% else %>
-  <h5 class="text-info m-b-0  ">Comments:</h5><br>
+  <h5 class="text-info m-b-0  ">COMMENTS:</h5><br>
   <% @post.comments.each do |comment| %>  
   <ul class="list-group">
    <li class="list-group-item text-muted"><%= comment.content %> by <strong><%= comment.username %></strong></li>

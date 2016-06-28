@@ -1,23 +1,25 @@
-<h2><%= @affiliation.name %></strong></h2>
+<div class="container-fluid">
+  <h2><%= @affiliation.name %></strong></h2>
 
-<p>
-  <%= @affiliation.description %><br>
-  <% @affiliation.users.each do |user| %>
-    <li><%= user.name %></li>
+  <p>
+    <%= @affiliation.description %><br>
+    <% @affiliation.users.each do |user| %>
+      <li><%= user.name %></li>
+    <% end %>
+  </p>
+
+
+
+  <% if can? :edit, Affiliation %>
+    <%= link_to 'Edit this affiliation', edit_affiliation_path(@affiliation) %> |
   <% end %>
+
+  <% if can? :destroy, Affiliation %>
+    <%= link_to 'Delete this affiliation', affiliation_path(@affiliation), :method => :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
+  <p>
+    <%= link_to 'Back to Affliations', affiliations_path %> | 
+    <%= link_to 'Back to Posts', posts_path %>
 </p>
-
-
-
-<% if can? :edit, Affiliation %>
-  <%= link_to 'Edit this affiliation', edit_affiliation_path(@affiliation) %> |
-<% end %>
-
-<% if can? :destroy, Affiliation %>
-  <%= link_to 'Delete this affiliation', affiliation_path(@affiliation), :method => :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-
-<p>
-  <%= link_to 'Back to Affliations', affiliations_path %> | 
-  <%= link_to 'Back to Posts', posts_path %>
-</p>
+</div>

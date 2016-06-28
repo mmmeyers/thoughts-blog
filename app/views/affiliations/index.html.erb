@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
 
-<h1>Affiliations</h1>
+  <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Affiliations</h1>
 
-  <tbody>
-    <% @affiliations.each do |affiliation| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to affiliation.name, affiliation_path(affiliation) %></td>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @affiliations.each do |affiliation| %>
+        <tr>
+          <td><%= link_to affiliation.name, affiliation_path(affiliation) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<% if can? :create, Affiliation %>
-  <%= link_to 'New Affiliation', new_affiliation_path %><br>
-<% end %>
+  <br>
 
-<p>
-  <%= link_to 'Back to Posts', posts_url %>
-</p>
+  <% if can? :create, Affiliation %>
+    <%= link_to 'New Affiliation', new_affiliation_path %><br>
+  <% end %>
+
+  <p>
+    <%= link_to 'Back to Posts', posts_url %>
+  </p>
+</div>

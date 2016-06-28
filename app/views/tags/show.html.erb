@@ -1,9 +1,11 @@
-<h2><%= @tag.name %></h2>
-<p>Other posts with this tag:
-<% @tag.posts.each do |post| %>
-  <p><%= link_to post.title, post_path(post) %></p>
-<% end %>
+<div class="container-fluid">
+  <h2><%= @tag.name %></h2>
+  <p>Other posts with this tag:</p>
+  <% @tag.posts.each do |post| %>
+    <p><%= link_to post.title, post_path(post) %></p>
+  <% end %>
 
-<hr class="style">
-  <p><%= link_to "Back", post_path(@post) %></p>
-  <p><%= link_to "Back to posts", posts_path %></p>
+  <hr class="style">
+    <p><%= link_to "Back", post_path(@post) %></p>
+    <p><%= link_to "Back to posts", posts_path %></p>
+</div>
