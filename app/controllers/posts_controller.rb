@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     if !params[:user].blank?
       @posts = Post.by_user(params[:user])
     else
-      @posts = Post.all 
+      @posts = Post.all
     end
   end
 
