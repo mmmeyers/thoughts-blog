@@ -13,7 +13,7 @@
 
 <div class="container-fluid m-t-1">
 
-<!-- this part is new -->
+<!-- this part is new - it filters the @posts list based on user input -->
 <% if !params[:user].blank? %>
   <% @posts = Post.where(user: params[:user]) %>
 <% end %>
