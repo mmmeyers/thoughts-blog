@@ -10,19 +10,11 @@ class PostsController < ApplicationController
     @users = User.all
 
     if !params[:user].blank?
-      @posts = Post.by_user(params[:user])
+      @posts = Post.by_user(params[:user]) # .by_user comes from the Post model - doesn't have to query the db
     else
       @posts = Post.all
     end
   end
-
-  # GET /posts/1
-  # GET /posts/1.json
-  # def show
-  #   # @post = Post.find(params[:id])
-  #   @comment = @post.comments.new
-  #   @user = @post.user
-  # end
 
   def show
     # @post = Post.find(params[:id])
